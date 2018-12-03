@@ -1,0 +1,33 @@
+<br>
+<div class="container">
+
+    <h1><i class="fa fa-arrow-right" aria-hidden="true"></i> Mis Publicaciones</h1><hr><br>
+
+    <a routerLink="/formpost/create" class="btn btn-success">Crear publicación</a><br><br>
+
+    <div class="card-columns">
+
+        <div class="card" *ngFor="let p of postsUser | async">
+            <img class="card-img-top" src={{p.image}} alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{p.titulo | uppercase}}</h5>
+                <p class="card-text">
+                    <a href={{p.link}} target="_blank">{{p.link}}</a><br>
+                    {{p.id | date:'medium'}}
+                </p>
+                <button mat-mini-fab (click)="viewFormUpdatePost(p.id)">
+                    <mat-icon matTooltip="Editar publicación" aria-label="Example icon-button with a heart icon">edit</mat-icon>
+                </button>
+                &nbsp;&nbsp;
+                <button mat-mini-fab color="warn" (click)="deleteImage(p.id)">
+                    <mat-icon matTooltip="Eliminar publicación" aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                </button>
+                &nbsp;&nbsp;
+                <button mat-mini-fab color="primary" (click)="viewDetailPost(p.id)">
+                    <mat-icon matTooltip="Ver mas información" aria-label="Example icon-button with a heart icon">arrow_forward_ios</mat-icon>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</div>

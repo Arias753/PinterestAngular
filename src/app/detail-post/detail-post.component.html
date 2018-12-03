@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+
+    <h1><i class="fa fa-arrow-right" aria-hidden="true"></i> Detalle de la Publicación</h1><hr><br>
+
+    <blockquote class="blockquote text-right">
+        <footer class="blockquote-footer">Publicado por: <cite title="Source Title">{{dataUser.email}}</cite></footer>
+    </blockquote>
+
+    <div class="card mb-3">
+        <img class="card-img-top" src={{dataPost.image}} alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{dataPost.titulo}}</h5>
+            <p class="card-text">{{dataPost.descripcion}}</p>
+            <p class="card-text"><small class="text-muted">{{dataPost.id | date:'medium'}}</small></p>
+            <a href={{dataPost.link}} target="_blank">{{dataPost.link}}</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1><i class="fa fa-comments" aria-hidden="true"></i> Comentarios</h1>
+
+    <div *ngIf="dataUser.id != dataPost.id_usuario">
+        <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder="Ingresar comentario"></textarea>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-primary" (click)="createPost()"><i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar comentario</button>
+    </div>
+
+    <div>
+        <!-- Mostrar todos los comentarios sobre la publicacion -->
+    </div>
+</div>

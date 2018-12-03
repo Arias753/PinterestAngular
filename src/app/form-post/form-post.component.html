@@ -1,0 +1,27 @@
+<br>
+<div class="container">
+
+    <h1><i class="fa fa-arrow-right" aria-hidden="true"></i> {{titleComponent}}</h1><hr><br>
+
+    <div>
+        <div class="form-group">
+            <label>Titulo</label>
+            <input type="text" class="form-control" placeholder="Ingresar titulo" [(ngModel)]="dataForm.titulo">
+        </div>
+        <div class="form-group">
+            <label>Descripción</label>
+            <textarea class="form-control" rows="5" placeholder="Ingresar descripción" [(ngModel)]="dataForm.descripcion"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Enlace</label>
+            <input type="text" class="form-control" placeholder="Ingresar enlace" [(ngModel)]="dataForm.link">
+        </div>
+        <div class="form-group">
+            <label>Seleccionar imagen</label>
+            <input class="form-control" type="file" (change)="selectImage($event)" accept="image/*">
+        </div>
+        <hr>
+        <button *ngIf="idPost == 0" type="button" class="btn btn-primary" (click)="createPost()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Crear Publicación</button>
+        <button *ngIf="idPost != 0" type="button" class="btn btn-info" (click)="updatePost()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Actualizar Publicación</button>
+    </div>
+</div>

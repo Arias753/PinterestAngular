@@ -1,0 +1,27 @@
+<br>
+<div class="container">
+
+    <h1><i class="fa fa-arrow-right" aria-hidden="true"></i> Todas las Publicaciones</h1><hr><br>
+
+    <div class="card-columns">
+
+        <div class="card" *ngFor="let p of postsAll | async">
+            <img class="card-img-top" src={{p.image}} alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{p.titulo | uppercase}}</h5>
+                <p class="card-text">
+                    <a href={{p.link}} target="_blank">{{p.link}}</a><br>
+                    {{p.id | date:'medium'}}
+                </p>
+                <button mat-mini-fab (click)="printDataUser()">
+                    <mat-icon matTooltip="Guardar como favorito" aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                </button>
+                &nbsp;&nbsp;
+                <button mat-mini-fab color="primary" (click)="viewDetailPost(p.id)">
+                    <mat-icon matTooltip="Ver mas información" aria-label="Example icon-button with a heart icon">arrow_forward_ios</mat-icon>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</div>
